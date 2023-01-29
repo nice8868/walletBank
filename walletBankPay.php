@@ -40,8 +40,8 @@ class WalletPayServices
     public $walletId=   null;//系统钱包id
     public function __construct($dev = 'dev'){
         date_default_timezone_set("Asia/Shanghai");
-        $this->timestamp=   time();
-        $this->time     =   date('Y-m-d H:i:s',);
+        $this->timestamp=   $_SERVER['REQUEST_TIME'] ?? time();
+        $this->time     =   date('Y-m-d H:i:s', $this->timestamp);
         $this->app_id   =   $this->config[$dev]['app_id'];
         $this->url      =   $this->config[$dev]['url'];
         $this->walletId =   $this->config[$dev]['walletId'];
